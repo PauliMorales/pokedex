@@ -1,0 +1,315 @@
+.pokemon {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 0.8em;
+  overflow: hidden;
+  border: 0.7em solid;
+  transition: transform 100mz ease;
+}
+.pokemon:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.pokemon__header {
+  height: 120px;
+  position: relative;
+}
+.pokemon__sprite {
+  width: 60%;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.pokemon__body {
+  padding: 0.5em;
+  padding-top: 2.5em;
+  background: honeydew;
+}
+.pokemon__name {
+  text-align: center;
+  text-transform: capitalize;
+}
+.pokemon__types {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+}
+.pokemon__type-specific {
+  text-transform: capitalize;
+  position: relative;
+}
+.pokemon__type-specific:nth-child(2)::before {
+  content: "/";
+  position: absolute;
+  left: -1em;
+}
+.pokemon__stats {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  font-size: 7.5px;
+  row-gap: 0.5rem;
+  font-weight: 900;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  align-items: center;
+  justify-items: center;
+}
+.pokemon__stats-specific {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+}
+.pokemon__stats-label {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.pokemon__stats-value {
+  font-size: 1rem;
+}
+.bg-grass {
+  background-image: linear-gradient(
+    178.92deg,
+    #7ec6c5 0.92%,
+    #abdac6 47.96%,
+    #cae099 99.08%
+  );
+}
+.bg-fire {
+  background-image: linear-gradient(
+    176.37deg,
+    #f96d6f -32.26%,
+    #e35825 22.55%,
+    #e8ae1b 125.72%
+  );
+}
+.bg-water {
+  background-image: linear-gradient(
+    179.57deg,
+    #133258 -70.14%,
+    #1479fb 56.16%,
+    #82b2f1 214.85%
+  );
+}
+.bg-bug {
+  background-image: linear-gradient(
+    177.56deg,
+    #62db60 -58.92%,
+    #3bb039 16.57%,
+    #aaffa8 209.53%
+  );
+}
+.bg-normal {
+  background: linear-gradient(
+    181.51deg,
+    #735259 -6.44%,
+    #bc6b7c 121.95%,
+    #7c3f4c 186.11%
+  );
+}
+.bg-fighting {
+  background: linear-gradient(
+    176.83deg,
+    #96402a -8.78%,
+    #f1613c 169.09%,
+    #cb735d 242.33%
+  );
+}
+.bg-poison {
+  background: linear-gradient(
+    177.03deg,
+    #5b3184 -11.97%,
+    #a564e3 71.28%,
+    #ce9bff 135.64%
+  );
+}
+.bg-ground {
+  background: linear-gradient(
+    179.75deg,
+    #654008 -19.96%,
+    #895c1a 43.67%,
+    #d69638 138.4%
+  );
+}
+.bg-rock {
+  background: linear-gradient(
+    177.03deg,
+    #7e7e7e -11.97%,
+    #8d8d94 57.49%,
+    #d3d3d3 135.64%
+  );
+}
+.bg-ghost {
+  background: linear-gradient(
+    177.03deg,
+    #323569 -11.97%,
+    #454aa8 57.49%,
+    #787dda 135.64%
+  );
+}
+.bg-steel {
+  background: linear-gradient(
+    179.75deg,
+    #5e736c -19.96%,
+    #728881 43.67%,
+    #a8a8a8 138.4%
+  );
+}
+.bg-electric {
+  background: linear-gradient(
+    90deg,
+    rgba(228, 255, 75, 1) 0%,
+    rgba(255, 247, 178, 1) 49%,
+    rgba(255, 209, 105, 1) 100%
+  );
+}
+.bg-psychic {
+  background: linear-gradient(
+    179.75deg,
+    #e62d2d -19.96%,
+    #d13e3e 43.67%,
+    #f07f7f 138.4%
+  );
+}
+.bg-ice {
+  background: linear-gradient(
+    177.03deg,
+    #6fbedf -11.97%,
+    #64cbf5 47.77%,
+    #bdebfe 136.72%
+  );
+}
+.bg-dragon {
+  background: linear-gradient(
+    179.75deg,
+    #478a93 -19.96%,
+    #56a4ae 43.67%,
+    #a2bec1 138.4%
+  );
+}
+.bg-dark {
+  background: linear-gradient(
+    177.03deg,
+    #030706 -11.97%,
+    #0d1211 57.49%,
+    #5a5e5d 135.64%
+  );
+}
+.bg-fairy {
+  background: linear-gradient(
+    179.75deg,
+    #971b45 -19.96%,
+    #c23867 43.67%,
+    #cd7d98 138.4%
+  );
+}
+.color-grass {
+  color: #7ec6c5;
+}
+.color-fire {
+  color: #e35825;
+}
+.color-water {
+  color: #1479fb;
+}
+.color-bug {
+  color: #3bb039;
+}
+.color-normal {
+  color: #bc6b7c;
+}
+.color-fighting {
+  color: #f1613c;
+}
+.color-flyign {
+  color: #0f0f2d;
+}
+.color-poison {
+  color: #a564e3;
+}
+.color-ground {
+  color: #895c1a;
+}
+.color-rock {
+  color: #8d8d94;
+}
+.color-ghost {
+  color: #454aa8;
+}
+.color-steel {
+  color: #728881;
+}
+.color-electric {
+  color: rgba(255, 247, 178, 1);
+}
+.color-psychic {
+  color: #d13e3e;
+}
+.color-ice {
+  color: #64cbf5;
+}
+.color-dragon {
+  color: #56a4ae;
+}
+.color-dark {
+  color: #0d1211;
+}
+.color-fairy {
+  color: #c23867;
+}
+
+.border-grass {
+  border-color: #7ec6c5;
+}
+.border-fire {
+  border-color: #e35825;
+}
+.border-water {
+  border-color: #1479fb;
+}
+.border-bug {
+  border-color: #3bb039;
+}
+.border-normal {
+  border-color: #bc6b7c;
+}
+.border-fighting {
+  border-color: #f1613c;
+}
+.border-flyign {
+  border-color: #0f0f2d;
+}
+.border-poison {
+  border-color: #a564e3;
+}
+.border-ground {
+  border-color: #895c1a;
+}
+.border-rock {
+  border-color: #8d8d94;
+}
+.border-ghost {
+  border-color: #454aa8;
+}
+.border-steel {
+  border-color: #728881;
+}
+.border-electric {
+  border-color: rgba(255, 247, 178, 1);
+}
+.border-psychic {
+  border-color: #d13e3e;
+}
+.border-ice {
+  border-color: #64cbf5;
+}
+.border-dragon {
+  border-color: #56a4ae;
+}
+.border-dark {
+  border-color: #0d1211;
+}
+.border-fairy {
+  border-color: #c23867;
+}

@@ -1,0 +1,48 @@
+.formpoke {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.formpoke__form {
+  display: flex;
+  flex-direction: column;
+  width: 18rem;
+}
+.formpoke__input {
+  font-size: 18px;
+  border: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+  height: 2rem;
+  padding: 1rem;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+.formpoke__input::placeholder {
+  color: rgba(249, 245, 245, 0.29);
+  font-style: italic;
+  font-size: 12px;
+}
+.formpoke__btn {
+  font-size: 15px;
+  color: black;
+  font-weight: 700;
+  background: white;
+  border-radius: 0 0 0.5rem 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+.formpoke__select {
+  font-size: 16px;
+  color: white;
+  width: 18rem;
+  height: 2rem;
+  text-align: center;
+  font-weight: 700;
+  background: #d93f3feb;
+  border-radius: 0.5rem;
+  border: none;
+  margin: 0.5rem 0 0;
+}

@@ -1,0 +1,8 @@
+.poke-Container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem 2rem;
+  width: 100%;
+}

@@ -1,0 +1,30 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.pagination .page-item {
+  margin: 0 8px;
+}
+/* ul.MuiPagination-ul {
+    background-color: #05292e;
+    padding: 1em;
+    justify-content: center;
+  }
+  
+  ul.MuiPagination-ul li button {
+    color: white;
+  }
+  
+  .Mui-selected {
+    background-color: #4419f2;
+    color: #ffffff;
+  }
+  
+  .MuiPaginationItem-root:not(.Mui-selected) {
+    color: #19d235;
+  } */
