@@ -2,15 +2,24 @@ import { useEffect, useState } from "react";
 import useFetch from "../../hooks/UseFetch";
 import PokeCard from "./PokeCard";
 import "./styles/pokecontainer.css";
-import Pagination from "./Pagination";
+import PokePagination from "./PokePagination";
 
-const PokeContainer = ({ formUrl }) => {
+const PokeContainer = ({ formUrl, setLoading }) => {
   const [pokemons, getAllPokemons] = useFetch(formUrl);
   const [data, setData] = useState();
 
   useEffect(() => {
     getAllPokemons();
   }, [formUrl]);
+
+  useEffect(() => {
+    console.warn(pokemons);
+    if (pokemons) {
+      setLoading(false);
+    } else {
+      setLoading(true);
+    }
+  }, [pokemons]);
 
   return (
     <>
@@ -34,7 +43,7 @@ const PokeContainer = ({ formUrl }) => {
             );
           })}
       </div>
-      <Pagination
+      <PokePagination
         rows={pokemons?.results?.length || pokemons?.pokemon?.length}
         data={pokemons?.results || pokemons?.pokemon}
         setData={setData}

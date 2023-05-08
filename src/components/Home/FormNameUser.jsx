@@ -17,7 +17,7 @@ const FormNameUser = () => {
 
   return (
     <form className="home__form" onSubmit={handleSubmit}>
-      <input className="home__input" ref={inputName} type="text" />
+      <input className="home__input" ref={inputName} type="text" autoFocus />
       <button className="home__btn">Start</button>
     </form>
   );

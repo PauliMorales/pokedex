@@ -1,5 +1,7 @@
 .wrapper {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -7,7 +9,6 @@
   align-items: center;
   background-color: white;
 }
-
 .pokeball {
   width: 60px;
   height: 60px;
@@ -18,17 +19,15 @@
   border: 3px solid;
   animation: frames 0.8s linear 0s infinite;
 }
-
 .pokeball:after {
   content: "";
   position: absolute;
   width: 60px;
   height: 30px;
-  background-color: red;
+  background-color: rgb(236 29 35);
   border-bottom: 4px solid;
   top: -4px;
 }
-
 .pokeball:before {
   content: "";
   position: absolute;
@@ -41,7 +40,6 @@
   right: 18px;
   z-index: 1;
 }
-
 /* AnimationFrames */
 @keyframes frames {
   0% {

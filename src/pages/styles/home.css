@@ -12,7 +12,7 @@
 .home__hi {
   font-size: 24px;
   font-weight: 700;
-  color: #fe1936;
+  color:rgb(236 29 35);
   padding: 1rem 0 0 0;
 }
 .home__paragraph {
@@ -40,7 +40,7 @@
   font-size: 18px;
   color: white;
   font-weight: 700;
-  background: #d93f3f;
+  background: rgb(236 29 35);
   border-radius: 0 0 0.5rem 0.5rem;
   border: 1px solid #050f16;
   /* border-right: 5px double #050f16;
@@ -48,18 +48,22 @@
   border-bottom: 5px double #050f16;
   border-radius: 2px; */
 }
-.home__footer{
-  min-height: 15vh;
+.home__footer {
+  min-height: 11vh;
   width: 100%;
-  background: linear-gradient(180deg,rgb(197, 53, 53) 0 60%,rgb(25,25,25) 60% 100%);
+  background: linear-gradient(
+    180deg,
+    rgb(236 29 35) 0 60%,
+    rgb(25, 25, 25) 60% 100%
+  );
   position: fixed;
   bottom: 0;
   left: 0;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
 }
-.home__footer-circle{
+.home__footer-circle {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -70,10 +74,12 @@
   justify-content: center;
   align-items: center;
 }
-.home__footer-incircle{
+.home__footer-incircle {
   width: 80%;
   height: 80%;
-  background: rgb(64,64,64);
+  background: rgb(64, 64, 64);
   border-radius: 50%;
   border: 10px solid black;
 }
+
+

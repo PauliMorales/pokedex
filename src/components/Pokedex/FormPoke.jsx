@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/UseFetch";
 import "./styles/formpoke.css";
 
-const FormPoke = ({ setFormUrl, urlBase }) => {
+const FormPoke = ({ setFormUrl, urlBase, setLoading }) => {
   const inputPoke = useRef();
   const navigate = useNavigate();
   const url = "https://pokeapi.co/api/v2/type";
@@ -13,6 +13,12 @@ const FormPoke = ({ setFormUrl, urlBase }) => {
     getAllTypes();
   }, []);
 
+  useEffect(() => {
+    if (types) {
+      setLoading(false);
+    }
+  }, [types]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const path = `/pokedex/${inputPoke.current.value.trim().toLowerCase()}`;
@@ -20,13 +26,20 @@ const FormPoke = ({ setFormUrl, urlBase }) => {
   };
 
   const handleChange = (e) => {
+    setLoading(true);
     setFormUrl(e.target.value);
   };
 
   return (
     <div className="formpoke">
       <form className="formpoke__form" onSubmit={handleSubmit}>
-        <input className="formpoke__input" ref={inputPoke} type="text" placeholder="Name of your Pokemon"/>
+        <input
+          className="formpoke__input"
+          ref={inputPoke}
+          type="text"
+          placeholder="Name of your Pokemon" 
+          autoFocus
+        />
         <button className="formpoke__btn">Search</button>
       </form>
       <select className="formpoke__select" onChange={handleChange}>

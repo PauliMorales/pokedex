@@ -8,16 +8,31 @@ import goback from "../assets/images/goback.png";
 import "../components/Pokedex/styles/pokecard.css";
 import "./styles/poke-info.css";
 import "./styles/pokedex.css";
+import './styles/home.css'
 
-const PokeInfo = () => {
+const PokeInfo = ({ setLoading }) => {
+  
   const { name } = useParams();
-
   const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
   const [pokemon, getPokemonByName, hasError] = useFetch(url);
 
   useEffect(() => {
     getPokemonByName();
   }, [name]);
+
+  useEffect(() => {
+    setLoading(true);
+    if(window){
+    window.scrollTo(0, 0);}
+  }, []);
+
+  useEffect(() => {
+    if (pokemon || hasError) {
+      setLoading(false);
+    }
+  }, [pokemon, hasError]);
+
+  const percent = (value) => (value * 100) / 200;
 
   return (
     <div className="pokeInfo">
@@ -43,7 +58,15 @@ const PokeInfo = () => {
               <img className="pokedex__img" src={pokedex} alt="" />
             </h1>
           </header>
+
           <div className="pokeInfo__container">
+            <Link className="pokeInfo__goback" to="/pokedex">
+              <img
+                className="pokeInfo__goback-icon"
+                src={goback}
+                alt="go-back"
+              />
+            </Link>
             <div className={`pokeInfo__img bg-${pokemon?.types[0].type.name}`}>
               <img
                 className="pokeInfo__img-poke"
@@ -52,36 +75,38 @@ const PokeInfo = () => {
               />
             </div>
 
-            <div className="pokeInfo__id">
-              <h2
-                className={`pokeInfo__id-name color-${pokemon?.types[0].type.name}`}
-              >
-                {pokemon?.name}
-              </h2>
-              <span
-                className={`pokeInfo__id-id color-${pokemon?.types[0].type.name}`}
-              >
-                #{pokemon?.id}
-              </span>
-            </div>
+            <div className="pokeInfo___pokeId">
+              <div className="pokeInfo__id">
+                <h2
+                  className={`pokeInfo__id-name color-${pokemon?.types[0].type.name}`}
+                >
+                  {pokemon?.name}
+                </h2>
+                <span
+                  className={`pokeInfo__id-id color-${pokemon?.types[0].type.name}`}
+                >
+                  #{pokemon?.id}
+                </span>
+              </div>
 
-            <div className="pokeInfo__measures">
-              <span className="pokeInfo__measures-title">
-                Height{" "}
-                <p
-                  className={`pokeInfo__measures-value color-${pokemon?.types[0].type.name}`}
-                >
-                  {pokemon?.height}
-                </p>
-              </span>
-              <span className="pokeInfo__measures-title">
-                Weight{" "}
-                <p
-                  className={`pokeInfo__measures-value color-${pokemon?.types[0].type.name}`}
-                >
-                  {pokemon?.weight}
-                </p>
-              </span>
+              <div className="pokeInfo__measures">
+                <span className="pokeInfo__measures-title">
+                  Height
+                  <p
+                    className={`pokeInfo__measures-value color-${pokemon?.types[0].type.name}`}
+                  >
+                    {pokemon?.height}
+                  </p>
+                </span>
+                <span className="pokeInfo__measures-title">
+                  Weight
+                  <p
+                    className={`pokeInfo__measures-value color-${pokemon?.types[0].type.name}`}
+                  >
+                    {pokemon?.weight}
+                  </p>
+                </span>
+              </div>
             </div>
 
             <section className="pokeInfo__qualities">
@@ -102,15 +127,20 @@ const PokeInfo = () => {
                 <h2>Ability</h2>
                 <ul className="pokeInfo__qualities-list">
                   {pokemon?.abilities.map((objAbi) => (
-                    <li clas key={objAbi.ability.url}>{objAbi.ability.name}</li>
+                    <li
+                      className="pokeInfo__qualities-li"
+                      key={objAbi.ability.url}
+                    >
+                      {objAbi.ability.name}
+                    </li>
                   ))}
                 </ul>
               </div>
             </section>
 
             <section className="pokeInfo__stats">
-              <h2>Stats</h2>
-              <ul>
+              <h2 className="pokeInfo__stats-title">Stats</h2>
+              <ul className="pokeInfo__stats-list">
                 {pokemon?.stats.map((objStat) => (
                   <li
                     className={`pokeInfo__stats-type bg-${pokemon?.types[0].type.name}`}
@@ -118,18 +148,18 @@ const PokeInfo = () => {
                     style={{
                       background: `linear-gradient(
                       90deg, rgba(221, 26, 26) 0px, 
-                      rgba(237, 143, 143) ${objStat.base_stat}%, 
-                      rgb(231, 231, 231) ${objStat.base_stat}%, 
+                      rgba(237, 143, 143) ${percent(objStat.base_stat)}%, 
+                      rgb(231, 231, 231) ${percent(objStat.base_stat)}%, 
                       rgb(231, 231, 231) 100%)`,
                     }}
                   >
-                    <span className="pokemon-stats_label">
+                    <span className="pokeInfo-stats_label">
                       {objStat.stat.name}
                     </span>
                     <span
-                      className={`pokemon-stats_value color-${pokemon?.types[0].type.name}`}
+                      className={`pokeInfo-stats_value color-${pokemon?.types[0].type.name}`}
                     >
-                      {objStat.base_stat}
+                      {objStat.base_stat} / 200
                     </span>
                   </li>
                 ))}
@@ -149,6 +179,11 @@ const PokeInfo = () => {
           </div>
         </div>
       )}
+      <footer className="home__footer">
+        <div className="home__footer-circle">
+          <div className="home__footer-incircle"></div>
+        </div>
+      </footer>
     </div>
   );
 };

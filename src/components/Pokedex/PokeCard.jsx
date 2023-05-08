@@ -7,10 +7,6 @@ const PokeCard = ({ url }) => {
   const [pokemon, getPokemonById] = useFetch(url);
 
   useEffect(() => {
-    console.log(url);
-  }, [url]);
-
-  useEffect(() => {
     getPokemonById();
   }, []);
 

@@ -4,33 +4,28 @@ import Home from "./pages/Home";
 import Pokedex from "./pages/Pokedex";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
 import PokeInfo from "./pages/PokeInfo";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
+import PokeLoad from "./components/Pokedex/PokeLoad";
 
 function App() {
-  const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      setLoading(true);
-      const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
-      setPosts(res.data);
-      setLoading(false);
-    };
-    fetchPosts();
-  }, []);
 
   return (
     <div className="app">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<ProtectedRoutes />}>
-          <Route path="/pokedex" element={<Pokedex />} />
-          <Route path="/pokedex/:name" element={<PokeInfo />} />
+          <Route
+            path="/pokedex"
+            element={<Pokedex setLoading={setLoading} />}
+          />
+          <Route
+            path="/pokedex/:name"
+            element={<PokeInfo setLoading={setLoading} />}
+          />
         </Route>
       </Routes>
-      {/* <Posts posts={currentPosts} loading={loading} /> */}
+      {loading && <PokeLoad />}
     </div>
   );
 }
